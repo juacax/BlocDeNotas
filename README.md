@@ -47,9 +47,3 @@
   - **GET** Notas / Devuelve notas por tipología
   - **GET** Notas / Devuelve notas por buscar palabra (o tipología)
   - **GET** Notas /Devuelve el detalle de la nota con id = id
-
-# Comandos útiles
-
-- Para revisar dependencias instaladas `npm list`.
-- Para revisar dependencias instaladas de primer nivel `npm list --depth=0`.
-- Para revisar dependencias en busca de vulnerabilidades conocidas utiliza `npm audit`.
