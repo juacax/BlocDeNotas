@@ -7,14 +7,7 @@
 - Creación, modificación y eliminación de categorias.
 - Categorización de notas.
 
-## LEYENDA
-
-- ✅ Terminado
-- 🔵 En desarrollo
-- 🟡 Futuras actualizaciones
-- 🟥 Requiere revisión
-
-## DEPENDENCIAS ✅
+## DEPENDENCIAS
 
     - express           (Agrega los módulos package.json y package-lock.json)    (El primero!!)
     - dotenv            (Acceder al archivo .env)
@@ -24,7 +17,7 @@
     - joi               (Validador exquemas de datos)
     - cors              ()
 
-## ENDPOINTS ✅
+## ENDPOINTS
 
 - **USUARIOS**
 
@@ -50,19 +43,10 @@
   - **GET** Notas / busqueda por detalle
   - **GET** Notas / busqueda por titulo
 
-  /\* EN DESARROLLO 🔵
-
   - **GET** Notas / req.query
   - **GET** Notas / Devuelve notas por tipología
   - **GET** Notas / Devuelve notas por buscar palabra (o tipología)
   - **GET** Notas /Devuelve el detalle de la nota con id = id
-    \*/
-
-## Uso
-
-Para ejecutar el proyecto:
-
-- En la terminal / bash usar comando `node index.js`.
 
 # Comandos útiles
 
