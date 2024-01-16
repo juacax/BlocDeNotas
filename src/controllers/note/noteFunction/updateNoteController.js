@@ -1,9 +1,9 @@
 //MÓDULO DE FUNCIONAMIENTO DE MODIFICACION DE NOTAS
 
 //NOTAS//
-//Función creamos una nota 
+//Función creamos una nota
 //Importamos las funciones del modelo de notas
-import { updateNoteService } from '../../../services/note/indexNoteService.js';
+import { updateNoteService } from "../../../services/note/indexNoteService.js";
 
 // Controlador para actualizar una nota basada en su ID
 const updateNoteController = async (req, res) => {
@@ -13,45 +13,34 @@ const updateNoteController = async (req, res) => {
   if (!id || !title || !detail || !text || !categoriaId) {
     return res.status(400).send({
       status: "error",
-      message: "Todos los campos (id, title, detail, text, categoriaId) son requeridos para actualizar.🔴"
+      message:
+        "Todos los campos (id, title, detail, text, categoriaId) son requeridos para actualizar.🔴",
     });
   }
 
   try {
-    const updatedNote = await updateNoteService(id, title, detail, text, categoriaId);
-    
+    const updatedNote = await updateNoteService(
+      id,
+      title,
+      detail,
+      text,
+      categoriaId
+    );
+
     res.status(200).send({
       status: "ok",
       message: "Nota modificada exitosamente.✅",
-      data: updatedNote
+      data: updatedNote,
     });
-
   } catch (error) {
     console.error("Error al modificar la nota:", error);
     res.status(500).send({
       status: "error",
-      message: "Error interno del servidor al modificar la nota, updateNoteController.🔴"
+      message:
+        "Error interno del servidor al modificar la nota, updateNoteController.🔴",
     });
   }
 };
 
-
 //exportamos funciones a rutas ( indexNoteController.js, ira a entries.routers.js)
 export default updateNoteController;
-
-
-
- /* EJEMPLO STEFANO
- router.put("/notes", (req, res) => {
-    // aqui me connecto al DB
-    res.status(200).send({
-      status: "ok",
-      message: "Nota modificada",
-      data: {
-        id: "1",
-        title: req.body.title,
-        text: req.body.text,
-        categoriaId: req.body.categoriaId,
-      },
-    });
-  });*/

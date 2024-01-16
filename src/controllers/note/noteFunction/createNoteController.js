@@ -1,8 +1,7 @@
 //MÓDULO DE FUNCIONAMIENTO DE CREACIÓN DE NOTAS
 
 // Importamos las funciones del modelo de notas
-import { createNoteService } from '../../../services/note/indexNoteService.js';  
-
+import { createNoteService } from "../../../services/note/indexNoteService.js";
 
 //NOTAS//
 //Función creamos la nota
@@ -16,50 +15,37 @@ const createNoteController = async (req, res) => {
   if (!title || !detail || !text || !categoriaId) {
     return res.status(400).send({
       status: "error",
-      message: "Todos los campos (title, text, categoriaId, detail) son requeridos.🔴"
+      message:
+        "Todos los campos (title, text, categoriaId, detail) son requeridos.🔴",
     });
   }
 
   try {
-    createNoteService(title, detail, text, categoriaId, userId)
-      .then(noteId => {
+    createNoteService(title, detail, text, categoriaId, userId).then(
+      (noteId) => {
         res.status(201).send({
           status: "ok",
           message: "Nota creada exitosamente.✅",
           data: {
             id: noteId.notaId,
             title,
-            detail, 
+            detail,
             text,
             categoriaId,
-            userId
-          }
-        })
-      });
-
+            userId,
+          },
+        });
+      }
+    );
   } catch (error) {
     console.error("Error al crear la nota:", error);
     res.status(500).send({
       status: "error",
-      message: "Error interno del servidor al crear la nota, createNoteController.🔴"
+      message:
+        "Error interno del servidor al crear la nota, createNoteController.🔴",
     });
   }
 };
 
 //exportamos funciones a rutas ( indexNoteController.js, ira a entries.routers.js)
 export default createNoteController;
-
-/* EJEMPLO STEFANO
-router.post("/notes", (req, res) => {
-  // aqui me connecto al DB
-  res.status(201).send({
-    status: "ok",
-    message: "Nota creada",
-    data: {
-      id: "1",
-      title: req.body.title,
-      text: req.body.text,
-      categoriaId: req.body.categoriaId,
-    },
-  });
-});*/
