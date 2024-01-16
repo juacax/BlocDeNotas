@@ -6,8 +6,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 //Propios
-import errorHandler from "../app_bloc_de_notas/src/middleware/errorHandler.js";
-import router from "../app_bloc_de_notas/src/routes/index.routes.js"; // Importamos rutas
+import errorHandler from "../BlocDeNotas/src/middleware/errorHandler.js";
+import router from "../BlocDeNotas/src/routes/index.routes.js"; // Importamos rutas
 
 dotenv.config(); //Configuración de variables de entorno (.env)
 const { PORT } = process.env;
