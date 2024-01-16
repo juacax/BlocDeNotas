@@ -1,6 +1,6 @@
-//MÓDULO DE POOL DE CONEXIONES
+// MÓDULO DE POOL DE CONEXIONES
 
-//importamos mysql y variables de entorno
+// Importamos mysql y variables de entorno
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 
@@ -45,9 +45,12 @@ const getPool = async () => {
     // Retornamos el pool de conexiones
     return pool;
   } catch (err) {
-    console.error("Error al establecer el pool de conexiones:", err);
+    // Manejamos el error de manera más específica
+    console.error("Error al establecer el pool de conexiones:", err.message);
+
+    throw err;
   }
 };
 
-//Exportamos función para usar en otros archivos.(models, node controllers, node categories, main.js...)
+// Exportamos la función para usar en otros archivos (models, node controllers, node categories, main.js...)
 export default getPool;
